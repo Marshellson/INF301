@@ -1,0 +1,11 @@
+Case = Debut
+input =a
+output =d 
+
+Case = Milieu
+input =i
+output =l 
+
+Case = Fin
+input =w
+output =z

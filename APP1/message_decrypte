@@ -1,0 +1,57 @@
+Cher Bob,
+
+
+
+Nous ne pouvons plus nous echanger de messages simplement par email. C'est
+
+trop risque. J'ai pirate le serveur d'etudiants pour en faire un lieu
+
+d'echanges plus discret, il s'agit du serveur d'exercices 'AppoLab'.
+
+
+
+J'ai efface toutes les traces derriere moi et bien malins seront ceux qui
+
+decouvriront mon stratageme. Je t'ai cree un compte sur le serveur, je crois
+
+que personne n'utilise ce serveur en ce moment et nous serons tranquilles.
+
+
+
+Pour se connecter au serveur, il y a des programmes C, Java ou Python qui
+
+existent. Choisis le langage que tu preferes et telecharge le .zip
+
+correspondant:
+
+http://im2ag-appolab.u-ga.fr/static/download/AppoLab-C.zip
+
+http://im2ag-appolab.u-ga.fr/static/download/AppoLab-Java.zip
+
+http://im2ag-appolab.u-ga.fr/static/download/AppoLab-Python.zip
+
+
+
+Je te conseille de te familiariser avec la plateforme AppoLab. Pour cela, lance
+
+le programme 'client-introduction' que tu trouveras dans le .zip. Ce programme
+
+se connectera au serveur AppoLab sur le port 9999.
+
+
+
+Une fois que tu seras a l'aise, tu pourras lancer l'exercice 'projetX' avec la
+
+commande 'load'. C'est un exercice cache que j'ai rajoute. Il est invisible
+
+pour les etudiant·es, et je l'ai de plus protege par un mot de passe : "secret".
+
+Laisse-y ton prochain message pour moi. N'oublie pas de le crypter avec la
+
+methode habituelle...
+
+
+
+Meilleurs sentiments,
+
+Alice.

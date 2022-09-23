@@ -1,0 +1,18 @@
+Codage de César
+
+Au programme : donner la lettre qui suit 3 lettres plus loin dans l'alphabet 
+(après z on revient à a).
+
+Cet exercice comporte deux fichiers à compléter :
+  1 : un fichier main.c comportant
+    - un programme principal incomplet pour saisir, calculer la lettre recherchée 
+    et afficher cette lettre.
+  2 : un fichier usr_evaluate.cases comportant des cas de test du programme
+  principal à compléter.
+
+Dans un premier temps, compléter le programme, l'exécuter et le valider sur 100% des cas.
+
+Dans un second temps, ajouter des cas de test pour les lettres de fin de l'alphabet, 
+pour les chiffres (ils ne doivent pas être modifiés), pour les majuscules 
+(n.b.: la comparaison n'est pas sensible à la casse).
+
