@@ -1,7 +1,7 @@
 /*
  * @Author: ThearchyHelios
  * @Date: 2022-09-30 08:25:17
- * @LastEditTime: 2022-09-30 08:25:18
+ * @LastEditTime: 2022-09-30 08:59:29
  * @LastEditors: ThearchyHelios
  * @Description:
  * @FilePath: /APP1/Client c/northwoods.c
@@ -14,142 +14,142 @@
 
 #define MAXMSG MAXREP
 
-void crypteSeq(char *message, char *txt_decry)
+void crypteSeq(char *message, char *messageDecrypte)
 {
   char sequence[10000];
   int x, y;
   int l;
-  int indice_C, txt_longeur, seque_longueur, longueur_tableau, indices_text;
+  int indiceCase, longueurMessage, longueurSequence, longueurTableau, indicesMessage;
 
-  indices_text = 0;
-  l = message[indices_text];
-  seque_longueur = 0;
-  longueur_tableau = 0;
-  sequence[seque_longueur] = l;
-  seque_longueur++;
-  txt_decry[longueur_tableau] = l;
-  longueur_tableau++;
-  txt_longeur = strlen(message);
-  int trueOrFalse;
+  indicesMessage = 0;
+  l = message[indicesMessage];
+  longueurSequence = 0;
+  longueurTableau = 0;
+  sequence[longueurSequence] = l;
+  longueurSequence++;
+  messageDecrypte[longueurTableau] = l;
+  longueurTableau++;
+  longueurMessage = strlen(message);
+  int booleanTemp;
 
-  for (y = 0; y < txt_longeur; y++)
+  for (y = 0; y < longueurMessage; y++)
   {
-    indices_text++;
-    l = message[indices_text];
-    trueOrFalse = 1;
+    indicesMessage++;
+    l = message[indicesMessage];
+    booleanTemp = 1;
 
-    for (x = 0; x < seque_longueur; x++)
+    for (x = 0; x < longueurSequence; x++)
     {
       if (l == sequence[x])
       {
-        trueOrFalse = 0;
-        indice_C = x;
+        booleanTemp = 0;
+        indiceCase = x;
       }
     }
-    if (trueOrFalse)
+    if (booleanTemp)
     {
-      sequence[seque_longueur] = l;
-      seque_longueur++;
-      txt_decry[longueur_tableau] = l;
-      longueur_tableau++;
+      sequence[longueurSequence] = l;
+      longueurSequence++;
+      messageDecrypte[longueurTableau] = l;
+      longueurTableau++;
     }
     else
     {
-      if (indice_C != 0)
+      if (indiceCase != 0)
       {
-        txt_decry[longueur_tableau] = sequence[indice_C - 1];
-        longueur_tableau++;
+        messageDecrypte[longueurTableau] = sequence[indiceCase - 1];
+        longueurTableau++;
       }
 
       else
       {
-        txt_decry[longueur_tableau] = sequence[seque_longueur - 1];
-        longueur_tableau++;
+        messageDecrypte[longueurTableau] = sequence[longueurSequence - 1];
+        longueurTableau++;
       }
 
-      if (indice_C != seque_longueur - 1)
+      if (indiceCase != longueurSequence - 1)
       {
-        for (x = indice_C; x < seque_longueur - 1; x++)
+        for (x = indiceCase; x < longueurSequence - 1; x++)
         {
           sequence[x] = sequence[x + 1];
         }
-        sequence[seque_longueur - 1] = l;
+        sequence[longueurSequence - 1] = l;
       }
     }
   }
 }
 
-void decrypteSeq(char *rep, char *txt_decry2)
+void decrypteSequence(char *rep, char *messageDecrypte)
 {
 
   int x, y;
   char carac;
-  int indice_C, trueOrFalse, txt_longueur, seq_longueur, tableau_longueur, indice_txt;
-  char sequence2[10000];
+  int indiceCase, booleanTemp, longueurMessage, longueurSequence, longueurTableau, indiceMessage;
+  char sequence[10000];
 
-  indice_txt = 0;
-  carac = rep[indice_txt];
-  seq_longueur = 0;
-  tableau_longueur = 0;
-  sequence2[seq_longueur] = carac;
-  seq_longueur++;
-  txt_decry2[tableau_longueur] = carac;
-  tableau_longueur++;
-  txt_longueur = strlen(rep);
+  indiceMessage = 0;
+  carac = rep[indiceMessage];
+  longueurSequence = 0;
+  longueurTableau = 0;
+  sequence[longueurSequence] = carac;
+  longueurSequence++;
+  messageDecrypte[longueurTableau] = carac;
+  longueurTableau++;
+  longueurMessage = strlen(rep);
 
-  for (y = 0; y < txt_longueur; y++)
+  for (y = 0; y < longueurMessage; y++)
   {
-    indice_txt++;
-    carac = rep[indice_txt];
-    trueOrFalse = 1;
-    for (x = 0; x < seq_longueur; x++)
+    indiceMessage++;
+    carac = rep[indiceMessage];
+    booleanTemp = 1;
+    for (x = 0; x < longueurSequence; x++)
     {
-      if (carac == sequence2[x])
+      if (carac == sequence[x])
       {
-        trueOrFalse = 0;
-        indice_C = x;
+        booleanTemp = 0;
+        indiceCase = x;
       }
     }
-    if (trueOrFalse)
+    if (booleanTemp)
     {
-      sequence2[seq_longueur] = carac;
-      seq_longueur++;
-      txt_decry2[tableau_longueur] = carac;
-      tableau_longueur++;
+      sequence[longueurSequence] = carac;
+      longueurSequence++;
+      messageDecrypte[longueurTableau] = carac;
+      longueurTableau++;
     }
     else
     {
-      if (indice_C != seq_longueur - 1)
+      if (indiceCase != longueurSequence - 1)
       {
-        txt_decry2[tableau_longueur] = sequence2[indice_C + 1];
-        tableau_longueur++;
+        messageDecrypte[longueurTableau] = sequence[indiceCase + 1];
+        longueurTableau++;
       }
       else
       {
-        txt_decry2[tableau_longueur] = sequence2[0];
-        tableau_longueur++;
+        messageDecrypte[longueurTableau] = sequence[0];
+        longueurTableau++;
       }
-      if (indice_C != seq_longueur - 1)
+      if (indiceCase != longueurSequence - 1)
       {
-        if (indice_C + 1 != seq_longueur - 1)
+        if (indiceCase + 1 != longueurSequence - 1)
         {
-          indice_C++;
-          carac = sequence2[indice_C];
-          for (x = indice_C; x < seq_longueur - 1; x++)
+          indiceCase++;
+          carac = sequence[indiceCase];
+          for (x = indiceCase; x < longueurSequence - 1; x++)
           {
-            sequence2[x] = sequence2[x + 1];
+            sequence[x] = sequence[x + 1];
           }
-          sequence2[seq_longueur - 1] = carac;
+          sequence[longueurSequence - 1] = carac;
         }
       }
       else
       {
-        carac = sequence2[0];
-        for (x = 0; x < seq_longueur - 1; x++)
+        carac = sequence[0];
+        for (x = 0; x < longueurSequence - 1; x++)
         {
-          sequence2[x] = sequence2[x + 1];
+          sequence[x] = sequence[x + 1];
         }
-        sequence2[seq_longueur - 1] = carac;
+        sequence[longueurSequence - 1] = carac;
       }
     }
   }
@@ -161,8 +161,8 @@ int main()
   int longueur;
   int x;
   char mot_de_pass[100];
-  char txt_decry[MAXREP];
-  char txt_decry2[MAXREP];
+  char messageDecrypte[MAXREP];
+  char messageDecrypte2[MAXREP];
   char mot_de_pass2[200] = "There will be no Nineteen Eighty-Four";
   char tableau[MAXREP];
 
@@ -174,25 +174,25 @@ int main()
   envoyer_recevoir("ok", rep);
   envoyer_recevoir("start", rep);
   envoyer_recevoir("hasta la victoria siempre", rep);
-  decrypteSeq(rep, txt_decry);
+  decrypteSequence(rep, messageDecrypte);
 
-  longueur = strlen(txt_decry);
+  longueur = strlen(messageDecrypte);
   for (x = longueur - 29; x < longueur - 9; x++)
   {
-    mot_de_pass[x - longueur + 29] = txt_decry[x];
+    mot_de_pass[x - longueur + 29] = messageDecrypte[x];
   }
 
   envoyer_recevoir(mot_de_pass, rep);
-  crypteSeq(mot_de_pass2, txt_decry2);
-  envoyer_recevoir(txt_decry2, rep);
+  crypteSeq(mot_de_pass2, messageDecrypte2);
+  envoyer_recevoir(messageDecrypte2, rep);
   longueur = strlen(rep);
   for (x = 24; x < longueur; x++)
   {
     tableau[x - 24] = rep[x];
   }
 
-  decrypteSeq(tableau, txt_decry);
-  envoyer_recevoir(txt_decry, rep);
+  decrypteSequence(tableau, messageDecrypte);
+  envoyer_recevoir(messageDecrypte, rep);
 
   return 0;
 }
