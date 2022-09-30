@@ -59,33 +59,6 @@ int main()
     strcpy(message, "help");
     envoyer_recevoir(message, reponse);
 
-    // if (strstr(reponse, "beaucoup trop lent") != NULL)
-    // {
-
-    //     puts("Bon, finalement vous avez échoué à cet exercice, mais c'était\n"
-    //          "fait exprès :-)");
-    //     attendre();
-    //     puts("Relancez ce programme et essayez d'être plus rapide cette fois !");
-    // }
-    // else
-    // {
-    //     puts("Bravo vous êtes plutôt rapide.\n"
-    //          "Vous pourriez relancer ce programme pour tenter à nouveau votre\n"
-    //          "chance, mais vous allez vite vous rendre compte que c'est fastidieux\n"
-    //          "de retaper votre login et mot de passe à chaque fois...");
-
-    //     attendre();
-
-    //     puts("Changez donc de programme et utilisez à la place 'client-tutoriel.c'\n"
-    //          "Par contre, vous devez tout d'abord éditer le fichier, et y trouver où \n"
-    //          "rentrer votre identifiant et mot de passe.");
-
-    //     attendre();
-
-    //     puts("Au revoir.");
-    // }
-
-
     strcpy(message, "start");
     envoyer_recevoir(message, reponse);
 
@@ -105,8 +78,6 @@ int main()
     envoyer_recevoir(message, reponse);
 
     attendre();
-
-    // deconnexion();
 
     return 0;
 }

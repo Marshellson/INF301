@@ -1,7 +1,7 @@
 /*
  * @Author: ThearchyHelios
  * @Date: 2022-09-15 21:20:05
- * @LastEditTime: 2022-09-23 00:44:01
+ * @LastEditTime: 2022-09-30 09:11:05
  * @LastEditors: ThearchyHelios
  * @Description: 
  * @FilePath: /APP1/Client c/client-interactif.c
@@ -77,26 +77,6 @@ int main() {
 	        if (ret < 0) {break;}
 	    }
 	}
-
-	// strcpy(message, "login 12100255 JIANG");
-	// envoyer_recevoir(message, reponse);
-
-	// strcpy(message, "load projetX");
-	// envoyer_recevoir(message, reponse);
-
-	// strcpy(message, "help");
-	// envoyer_recevoir(message, reponse);
-
-	// strcpy(message, "depart");
-	// envoyer_recevoir(message, reponse);
-
-	// strcpy(message, "veni vidi vici");
-	// envoyer_recevoir(message, reponse);
-
-	// strcpy(message, "load crypteMove");
-	// envoyer_recevoir(message, reponse);
-
-	// attendre();
 
 	return 0;
 }
