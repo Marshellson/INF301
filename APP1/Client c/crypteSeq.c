@@ -1,340 +1,238 @@
 /*
  * @Author: ThearchyHelios
  * @Date: 2022-09-26 09:08:43
- * @LastEditTime: 2022-09-26 09:08:43
+ * @LastEditTime: 2022-09-30 08:19:32
  * @LastEditors: ThearchyHelios
  * @Description:
  * @FilePath: /APP1/Client c/crypteSeq.c
  */
+#include "client.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
-#include "struct.h"
-#include "client.h"
 
 #define MAXMSG MAXREP
 
-int algoCrypteMove(char TXT[], char ENC[])
+void cryptesequence(char *message, char *txt_decry)
 {
-    int lenTXT = strlen(TXT);
-    // Contient la position du caractère à ajouter dans le tableau encodé
-    int avancementENC = 0;
-    // Contient la position de la première lettre dans le tableau TXT
-    int position_start = 0;
-    // Contient la position de la dernière lettre dans le tableau TXT
-    int position_finish = lenTXT - 1;
+    char sequence[10000];
+    int x, y;
+    int l;
+    int indice_C, txt_longeur, seque_longueur, longueur_tableau, indices_text;
 
-    char X;
+    indices_text = 0;
+    l = message[indices_text];
+    seque_longueur = 0;
+    longueur_tableau = 0;
+    sequence[seque_longueur] = l;
+    seque_longueur++;
+    txt_decry[longueur_tableau] = l;
+    longueur_tableau++;
+    txt_longeur = strlen(message);
+    int trueOrFalse;
 
-    // Tant qu’il reste des lettres dans le texte à chiffrer
-    while (position_finish >= position_start)
+    for (y = 0; y < txt_longeur; y++)
     {
-        // Concatène la lettre première lettre de TXT à ENC
-        ENC[avancementENC] = TXT[position_start];
-        // Pour ne plus prendre en compte le caractère ajouté à ENC
-        position_start++;
-        // Calcul de X, à partir de la lettre concaténée à ENC
-        X = ENC[avancementENC] % 8;
-        // Ajoute 1 à la taille du texte Encodé pour pouvoir concaténer au bonne endroit les futurs lettres
-        avancementENC++;
+        indices_text++;
+        l = message[indices_text];
+        trueOrFalse = 1; // si n'existe pas
 
-        if (X > 0 && ((position_finish - position_start) >= X))
+        for (x = 0; x < seque_longueur; x++)
         {
-            // nb cases disponible avant = position_start
-            // Si assez de place pour stocker la fin de la chaine au début du tableau
-            if (position_start >= (position_finish - (position_start + X - 1)))
+            if (l == sequence[x]) // si existe
             {
-                // Initialisation compteur j, pour déplacer les élément de fin de chaine de caractère au début
-                int j = position_start + X;
-                // Calcul nouvelle position start de la chaine de caractère
-                position_start -= position_finish - (position_start + X - 1);
-                // Calcul la nouvelle position final de la chaine de caractère
-                position_finish = j - 1;
-                // Boucle pour placer les X caractères finaux au début de la chaine
-                for (int i = position_start; i < (position_finish - X + 1); i++)
-                {
-                    TXT[i] = TXT[j];
-                    j++;
-                }
+                trueOrFalse = 0;
+                indice_C = x; // on stocke num de sa case
             }
-            // Si assez de place pour stocker à la fin du tableau
-            else if (MAXMSG >= position_finish + X)
+        }
+        if (trueOrFalse)
+        { // if la premiere fois que cette lettre (a) apparait, on va l'ajtxt_decryer à la fin nde sequence et de txt_decry
+            sequence[seque_longueur] = l;
+            seque_longueur++;
+            txt_decry[longueur_tableau] = l;
+            longueur_tableau++;
+        }
+        else
+        { // si la lettre existe (a) deja en sequence, on prend lettre qui la precede et l'ajtxt_decrye à fin txt_decry, puis on la rend au debut de sequence
+            if (indice_C != 0)
             {
-                int j = position_start;
-                position_start += X;
-                position_finish += X;
-                for (int i = position_finish - X + 1; i <= position_finish; i++)
-                {
-                    TXT[i] = TXT[j];
-                    j++;
-                }
+                txt_decry[longueur_tableau] = sequence[indice_C - 1];
+                longueur_tableau++;
             }
-            // Si de la place null part renvoie 1
+
             else
             {
-                return 1;
+                txt_decry[longueur_tableau] = sequence[seque_longueur - 1];
+                longueur_tableau++;
+            }
+
+            if (indice_C != seque_longueur - 1)
+            { // si a n'existe pas à la fin de sequence
+                for (x = indice_C; x < seque_longueur - 1; x++)
+                {
+                    sequence[x] = sequence[x + 1];
+                }
+                sequence[seque_longueur - 1] = l;
             }
         }
     }
-    return 0;
 }
 
-void crypteMove(char TXT[], char ENC[])
+void decrypteSeq(char *rep, char *txt_decry2)
 {
-    if (algoCrypteMove(TXT, ENC) == 1)
-        printf("Le texte est de trop grande taille ... Il n a pas pu etre dechiffre\n");
-}
 
-void dechiffreBayOfPigs(char CHI[], char DEC[])
-{
-    char newChar, tabl_X[100000];
-    int X;
-    int lenCHI = strlen(CHI);
-    int lenDEC = 0;
+    int a, b;
+    int txt_longeur, seque_longueur, longueur_tableau;
+    char sequence2[10000];
 
-    while (lenCHI > 0)
+    int indices_text = 83;
+    char carac = rep[indices_text];
+
+    seque_longueur = 0;
+    longueur_tableau = 0;
+    sequence2[seque_longueur] = carac;
+    seque_longueur++;
+    txt_decry2[longueur_tableau] = carac;
+    longueur_tableau++;
+    txt_longeur = strlen(rep);
+    int indice_C;
+    int trueOrFalse;
+    for (b = 83; b < txt_longeur; b++)
     {
-        newChar = CHI[lenCHI - 1];
-        X = newChar % 8;
-        if (X > 0 && lenDEC > X)
+        indices_text++;
+        carac = rep[indices_text];
+        trueOrFalse = 1;
+        for (a = 0; a < seque_longueur; a++)
         {
-            // Stocke les valeurs de fin à replacé en début
-            for (int i = 0; i < X; i++)
+            if (carac == sequence2[a])
             {
-                tabl_X[i] = DEC[lenDEC + i - X];
-            }
-            // Déplace les valeurs
-            for (int i = lenDEC - X - 1; i >= 0; i--)
-            {
-                DEC[i + X + 1] = DEC[i];
-            }
-            // Copie des caractères stockés dans tabl_X vers DEC
-            for (int i = 1; i <= X; i++)
-            {
-                DEC[i] = tabl_X[i - 1];
+                trueOrFalse = 0;
+                indice_C = a;
             }
         }
-        // Décalage pour accepter la nouvelle lettre
+        if (trueOrFalse)
+        {
+            sequence2[seque_longueur] = carac;
+            seque_longueur++;
+            txt_decry2[longueur_tableau] = carac;
+            longueur_tableau++;
+        }
         else
         {
-            for (int i = lenDEC; i >= 0; i--)
+            if (indice_C != seque_longueur - 1)
             {
-                DEC[i + 1] = DEC[i];
+                txt_decry2[longueur_tableau] = sequence2[indice_C + 1];
+                longueur_tableau++;
+            }
+            else
+            {
+                txt_decry2[longueur_tableau] = sequence2[0];
+                longueur_tableau++;
+            }
+
+            if (indice_C != seque_longueur - 1)
+            {
+                if (indice_C + 1 != seque_longueur - 1)
+                {
+
+                    indice_C++;
+                    carac = sequence2[indice_C];
+                    for (a = indice_C; a < seque_longueur - 1; a++)
+                    {
+                        sequence2[a] = sequence2[a + 1];
+                    }
+                    sequence2[seque_longueur - 1] = carac;
+                }
+            }
+            else
+            {
+                carac = sequence2[0];
+                for (a = 0; a < seque_longueur - 1; a++)
+                {
+                    sequence2[a] = sequence2[a + 1];
+                }
+                sequence2[seque_longueur - 1] = carac;
             }
         }
-        // Caractère issu de CHI
-        DEC[0] = newChar;
-
-        lenDEC++;
-        lenCHI--;
     }
 }
 
-void chiffreSeq(char TXT[], char ENC[])
+void decrypteMove(char *rep, char *msg)
 {
-    char C, D, seqCar[256] = "";
+    int x, y;
+    int len, a;
+    char tableau[MAXMSG];
+    int mod, indices_text;
+    char txt[MAXREP];
 
-    int lenTXT = strlen(TXT);
-    int lenSeqCar, progressENC = 0, flag;
-    // Parcour TXT
-    for (int i = 0; i < lenTXT; i++)
+    len = strlen(rep);
+    for (x = 0; x < len; x++)
     {
-        C = TXT[i];
-        lenSeqCar = strlen(seqCar);
-        flag = 0;
-        // Parcour la seq de caractère pour voir si C est présent
-        for (int j = 0; j < lenSeqCar; j++)
+        txt[x] = rep[x];
+    }
+
+    a = len;
+    indices_text = len - 1;
+
+    for (y = 0; y < a; y++)
+    {
+        mod = txt[indices_text] % 8; // mod de dernier caractere de text à decrypter
+        len = strlen(tableau);
+
+        if (mod != 0 && mod < len)
         {
-            if (seqCar[j] == C)
+            for (x = 0; x < mod; x++)
             {
-                if (j == 0)
+
+                tableau[len] = tableau[x]; // pour x=mod, prendre les x premiers elements et les deplacer à la fin
+                len = strlen(tableau);
+            }
+
+            for (x = 0; x < len; x++)
+            {
+                if (x < len - mod)
                 {
-                    D = seqCar[lenSeqCar - 1];
+                    tableau[x] = tableau[x + mod];
                 }
                 else
                 {
-                    D = seqCar[j - 1];
+                    tableau[x] = '\0';
                 }
-                flag = 1;
-                // Délpace les cactères pour placer C à la fin de Seq Car
-                for (int z = j; z < lenSeqCar - 1; z++)
-                {
-                    seqCar[z] = seqCar[z + 1];
-                }
-                seqCar[lenSeqCar - 1] = C;
-                break;
             }
         }
-        // Si C n’a pas été rencontré dans la séquence de caractères
-        if (flag == 0)
-        {
-            ENC[progressENC] = C;
-            seqCar[lenSeqCar] = C;
-        }
-        else
-        {
-            ENC[progressENC] = D;
-        }
-
-        progressENC++;
+        len = strlen(tableau);
+        tableau[len] = txt[indices_text];
+        len = strlen(tableau);
+        indices_text--;
     }
-}
-
-void debMessage(char TXT[], char message[])
-{
-    int i = 0, z;
-    while (i < 1000000)
+    for (x = 0; x < len; x++)
     {
-        if (TXT[i] == 'A' && TXT[i + 1] == 'l' && TXT[i + 2] == 'i' && TXT[i + 3] == 'c' && TXT[i + 4] == 'e' && TXT[i + 5] == ',')
-            break;
-        i++;
-    }
-
-    z = 0;
-    while (TXT[i] != '\0')
-    {
-        message[z] = TXT[i];
-        z++;
-        i++;
-    }
-}
-
-char check_seq(seq *seq, char newC)
-{
-    int i, j, position_lettrePivot;
-    for (i = seq->start; i <= seq->end; i++)
-    {
-
-        if (seq->chaine[i] == newC)
-        {
-            position_lettrePivot = i + 1;
-
-            // Cas fin de chaine :
-            if (i > 0 && i == seq->end)
-            {
-                seq->end += 1;
-                seq->chaine[seq->end] = seq->chaine[seq->start];
-                seq->start += 1;
-
-                // Renvoie de la dernière valeurs
-                return seq->chaine[seq->end];
-            }
-
-            // ############################################################ //
-            //                 Déplace le début de la chaine
-            // ############################################################ //
-            // Si la chaine à déplacer est plus courte avant la lettre pivot
-            if ((position_lettrePivot - seq->start) < (seq->end - (position_lettrePivot)))
-            {
-                // Si la position final atteindra les 10 000 à la fin de la fonction replace la chaine au départ du tableau
-                if (seq->end == (TAILLE_SEQ - 1))
-                {
-                    int z = 0;
-                    // Replace les lettres d’avant pivot au depart
-                    for (j = seq->start; j < position_lettrePivot; j++)
-                    {
-                        seq->chaine[z] = seq->chaine[j];
-                        z++;
-                    }
-                    // Renitialisation de la position de départ de la chaine
-                    seq->start = 0;
-                    // Replace les lettres d’apres pivot au depart
-                    for (j = position_lettrePivot + 1; j <= seq->end; j++)
-                    {
-                        seq->chaine[z] = seq->chaine[j];
-                        z++;
-                    }
-                    // Mise à niveau du nombre marquant la fin de la chaine
-                    seq->end = z;
-                    // Place lettre pivot à la fin de la chaine
-                    seq->chaine[z] = seq->chaine[position_lettrePivot];
-
-                    // Renvoie la lettre pivot
-                    return seq->chaine[z];
-                }
-
-                // Ajoute 1 à la position de la dernière lettre de la seq
-                seq->end += 1;
-                // Place à la dernière case de seq le caractère d’échange
-                seq->chaine[seq->end] = seq->chaine[position_lettrePivot];
-                // Décale les lettres avant et incluant la lettre newC
-                for (j = position_lettrePivot; j > seq->start; j--)
-                {
-                    seq->chaine[j] = seq->chaine[j - 1];
-                }
-                // Ajoute 1 à la position de départ
-                seq->start += 1;
-
-                // Renvoie la valeur de la lettre pivot
-                return seq->chaine[seq->end];
-            }
-
-            // ############################################################ //
-            //                  Déplace la fin de la chaine
-            // ############################################################ //
-            // Si la chaine à déplacer est plus courte apres la lettre pivot
-            char lettre_pivot = seq->chaine[position_lettrePivot];
-            // Deplacement des elements apres lettre pivot
-            for (j = position_lettrePivot; j < seq->end; j++)
-            {
-                // printf("Affecte %c à la place de %c\n", seq->chaine[j + 1], seq->chaine[j]);
-                seq->chaine[j] = seq->chaine[j + 1];
-            }
-            // affectation de la valeur pivot en fin de chaine
-            seq->chaine[seq->end] = lettre_pivot;
-            // retourne la lettre pivot pour completer le texte decode
-            return lettre_pivot;
-        }
-
-        // printf("%c != %c\n", seq->chaine[i], newC);
-    }
-    // Si le caractère n’est pas présent dans seq ajout de ce caractère à la fin de seq et retourne ce même pour le texte décodé
-    seq->end += 1;
-    seq->chaine[seq->end] = newC;
-    return newC;
-}
-
-void dechiffreSeq(char TXT[], char DEC[])
-{
-    seq s;
-    init_seq(&s);
-    int lenDEC = strlen(DEC);
-    int i = 0;
-    while (TXT[i] != '\0')
-    {
-        DEC[i] = check_seq(&s, TXT[i]);
-        lenDEC++;
-        i++;
+        msg[x] = tableau[len - 1 - x];
     }
 }
 
 int main()
 {
-    char reponse[MAXREP];
-    char message[MAXMSG];
+    char rep[MAXREP]; // pour stocker la rÃ©ponse du serveur
+    char msg[MAXMSG]; // pour stocker le msg Ã  envoyer au serveur
+    char txt_decry[MAXREP];
+    char txt_decry2[MAXREP];
 
-    // Affiche les échanges avec le serveur (false pour désactiver)
     mode_debug(true);
 
     connexion("im2ag-appolab.u-ga.fr", 9999);
-    envoyer_recevoir("login 12012095 PIGNON", reponse);
+    envoyer_recevoir("login 12100255 JIANG", rep);
+    envoyer_recevoir("load crypteSeq", rep);
+    envoyer_recevoir("Alice, nous avons besoin de toi. Decode mon msg au plus vite. Bob", rep);
+    envoyer_recevoir("start", rep);
 
-    envoyer_recevoir("load crypteSeq", reponse);
-    dechiffreBayOfPigs(reponse, message);
-    envoyer_recevoir(message, reponse);
-    envoyer_recevoir("start", reponse);
-    dechiffreBayOfPigs(reponse, message);
-    printf("crypteSeq : %s\n", message);
-    chiffreSeq(message, reponse);
-    envoyer_recevoir(reponse, message);
-    debMessage(message, reponse);
-    dechiffreSeq(reponse, message);
-    printf("Message : %s\n", message);
-    envoyer_recevoir("quit", reponse);
+    decrypteMove(rep, msg);         // decryptage par methode crypteMove
+    cryptesequence(msg, txt_decry); // encrypter par methode cryptesequence
+    envoyer_recevoir(txt_decry, rep);
+    decrypteSeq(rep, txt_decry2); // decryptage par methode de cryptesequence
+    envoyer_recevoir(txt_decry2, rep);
 
-    deconnexion();
-
+    printf("Fin de la connection au serveur\n");
     return 0;
 }
