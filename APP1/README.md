@@ -4,7 +4,7 @@
 
 <p align="right">EL-BOUCH ISMAIL JIANG Yilun MAMADOU DIALLO</p>
 
-***client-tutoriel.c***
+### `client-tutoriel.c`
 
 ```c
 #include "client.h"
@@ -93,7 +93,7 @@ int main()
 
 ```
 
-***projetX.c***
+### `projetX.c`
 
 ```c
 #include "client.h"
@@ -144,7 +144,7 @@ int main()
 
 ```
 
-***crypteMove.c***
+### `crypteMove.c`
 
 ```c
 #include <stdio.h>
@@ -243,7 +243,7 @@ int main(){
 }
 ```
 
-***BayOfPigs.c***
+### `BayOfPigs.c`
 
 ```c
 #include "client.h"
@@ -339,7 +339,7 @@ int main()
 
 ```
 
-***crypteSeq.c***
+### `crypteSeq.c`
 
 ```c
 #include "client.h"
@@ -575,7 +575,7 @@ int main()
 
 ```
 
-***Northwoods.c***
+### `Northwoods.c`
 
 ```c
 #include "client.h"
