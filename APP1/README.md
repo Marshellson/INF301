@@ -342,14 +342,6 @@ int main()
 ***crypteSeq.c***
 
 ```c
-/*
- * @Author: ThearchyHelios
- * @Date: 2022-09-26 09:08:43
- * @LastEditTime: 2022-09-30 09:00:53
- * @LastEditors: ThearchyHelios
- * @Description:
- * @FilePath: /APP1/Client c/crypteSeq.c
- */
 #include "client.h"
 #include <stdio.h>
 #include <ctype.h>
@@ -586,14 +578,6 @@ int main()
 ***Northwoods.c***
 
 ```c
-/*
- * @Author: ThearchyHelios
- * @Date: 2022-09-30 08:25:17
- * @LastEditTime: 2022-09-30 08:59:29
- * @LastEditors: ThearchyHelios
- * @Description:
- * @FilePath: /APP1/Client c/northwoods.c
- */
 #include "client.h"
 #include <stdio.h>
 #include <ctype.h>
