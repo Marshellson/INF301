@@ -771,4 +771,5 @@ int main()
 
 ```
 
-###### Lien du projet: https://github.com/Marshellson/INF301/tree/main/APP1
+### Lien du projet
+https://github.com/Marshellson/INF301/tree/main/APP1
