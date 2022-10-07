@@ -1,0 +1,43 @@
+Case = Exemple de test par defaut 1
+input =1 2 3 4 -1
+output =Résultat : 1 2 3 4
+
+Case = Exemple de test par defaut vide
+input = -1
+output =Résultat : 
+
+Case = Exemple de test par defaut singleton
+input = 1 -1
+output =Résultat : 1
+
+Case = Exemple de test par defaut couple
+input = 1 2 -1
+output =Résultat : 1 2  
+
+Case = Exemple de test par defaut couple doublon
+input = 1 1 -1
+output =Résultat : 1  
+
+Case = Exemple de test par defaut doublon
+input =1 2 3 4 5 5 6 7 8 9 10 -1
+output =Résultat : 1 2 3 4 5 6 7 8 9 10 
+
+Case = Exemple de test par defaut doublons
+input =1 1 2 3 4 5 5 6 7 8 9 10 10 -1
+output =Résultat : 1 2 3 4 5 6 7 8 9 10 
+
+Case = Exemple de test par defaut triplet
+input =1 1 2 3 4 5 5 5 6 7 8 9 10 10 -1
+output =Résultat : 1 2 3 4 5 6 7 8 9 10 
+
+Case = Exemple de test par defaut quadruplet
+input =1 1 2 3 4 5 5 5 5 6 7 8 9 10 10 10 -1
+output =Résultat : 1 2 3 4 5 6 7 8 9 10 
+
+Case = Exemple de test par defaut identiques
+input =1 1 1 1 -1
+output =Résultat : 1 
+
+Case = Exemple de test par defaut autoreferent
+input =1 2 2 3 3 3 4 4 4 4 5 5 5 5 5 -1
+output =Résultat : 1 2 3 4 5 

@@ -1,0 +1,56 @@
+Case = Exemple de test par defaut simple
+input =11 4 23 443 21 3 24 43 14 -1
+output =Résultat : 3 4 11 14 21 23 24 43 443
+
+Case = Exemple de test par defaut avec doublon
+input =11 4 23 21 443 21 3 24 43 14 -1
+output =Résultat : 3 4 11 14 21 21 23 24 43 443
+
+Case = Exemple de test par defaut avec doublons
+input =11 4 23 21 443 21 3 24 43 14 11 -1
+output =Résultat : 3 4 11 11 14 21 21 23 24 43 443
+
+input =1 2 3 4 -1
+output =Résultat : 1 2 3 4
+
+Case = Exemple de test par defaut sens inverse
+input =4 3 2 1 -1
+output =Résultat : 1 2 3 4
+
+Case = Exemple de test par defaut sens desordonne
+input =3 2 4 1 -1
+output =Résultat : 1 2 3 4
+
+Case = Exemple de test par defaut sens desordonne bis
+input =1 2 4 3 -1
+output =Résultat : 1 2 3 4
+
+Case = Exemple de test par defaut sens desordonne bis
+input =2 1 4 3 -1
+output =Résultat : 1 2 3 4
+
+Case = Exemple de test par defaut sens desordonne bis
+input =3 1 4 2 -1
+output =Résultat : 1 2 3 4
+
+Case = Exemple de test par defaut identiques
+input =1 1 1 1 -1
+output =Résultat : 1 1 1 1 
+
+Case = Exemple de test par defaut vide
+input = -1
+output =Résultat : 
+
+Case = Exemple de test par defaut singleton
+input = 1 -1
+output =Résultat : 1
+
+Case = Exemple de test par defaut couple ordonne
+input = 1 2 -1
+output =Résultat : 1 2  
+
+Case = Exemple de test par defaut couple inverse
+input = 2 1 -1
+output =Résultat : 1 2  
+
+

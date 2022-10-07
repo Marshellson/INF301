@@ -1,0 +1,36 @@
+Case = Exemple de test par defaut max
+input =1 2 3 4 -1 5
+output =Résultat : 5 1 2 3 4
+
+Case = Exemple de test par defaut min
+input =1 2 3 4 -1 0
+output =Résultat : 0 1 2 3 4
+
+Case = Exemple de test par defaut medium
+input =1 2 4 5 -1 3 
+output =Résultat : 3 1 2 4 5
+
+Case = Exemple de test par defaut doublon max
+input =1 1 1 -1 2
+output =Résultat : 2 1 1 1
+
+Case = Exemple de test par defaut doublon min
+input =1 1 1 -1 0
+output =Résultat : 0 1 1 1
+
+Case = Exemple de test par defaut vide
+input = -1 1
+output =Résultat : 1
+
+Case = Exemple de test par defaut singleton gd
+input = 1 -1 2
+output =Résultat : 2 1
+
+Case = Exemple de test par defaut singleton pt
+input = 2 -1 1
+output =Résultat : 1 2
+
+Case = Exemple de test par defaut singleton egal
+input = 1 -1 1
+output =Résultat : 1 1
+
