@@ -1,3 +1,11 @@
+/*
+ * @Author: ThearchyHelios
+ * @Date: 2022-10-07 08:49:25
+ * @LastEditTime: 2022-10-07 09:10:36
+ * @LastEditors: ThearchyHelios
+ * @Description: 
+ * @FilePath: /INF301/Semaine de Transition - Listes chaînées/Exo 2.1 (Langage C) _ Ajout en tête(Required Files)/sequences.h
+ */
 /************************************************************/
 /*     Bibliothèque pour les séquences d'entiers            */
 /*        implémentées par une liste chaînée                */
@@ -5,13 +13,15 @@
 
 /*        a priori : ne rien changer ici                    */
 
-struct cellule {
+struct cellule
+{
     int valeur;
     struct cellule *suivant;
 };
 typedef struct cellule cellule_t;
 
-struct liste {
+struct liste
+{
     cellule_t *tete;
 };
 typedef struct liste liste_t;
