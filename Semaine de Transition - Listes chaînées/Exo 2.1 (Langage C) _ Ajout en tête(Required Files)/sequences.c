@@ -1,3 +1,11 @@
+/*
+ * @Author: ThearchyHelios
+ * @Date: 2022-10-07 08:49:25
+ * @LastEditTime: 2022-10-07 08:50:32
+ * @LastEditors: ThearchyHelios
+ * @Description: 
+ * @FilePath: /INF301/Semaine de Transition - Listes chaînées/Exo 2.1 (Langage C) _ Ajout en tête(Required Files)/sequences.c
+ */
 #include <stdlib.h>
 #include <stdio.h>
 #include "sequences.h"
@@ -48,5 +56,10 @@ void afficher(liste_t *l) {
 /* Ajout en tete d'une sequences d'entiers implémentée par une liste chaînée */
 void ajout_en_tete(liste_t *l, int n) {
     /* votre code ici */
+    cellule_t *c;
+    c = (cellule_t *) malloc(sizeof(cellule_t));
+    c->valeur = n;
+    c->suivant = l->tete;
+    l->tete = c;
     return;
 }
