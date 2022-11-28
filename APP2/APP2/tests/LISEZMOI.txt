@@ -49,16 +49,16 @@ Acte V:
 - echanges
 - clones
 
-- compteur
-- boucle
-- boucle-sans-pile
+- compteur // Pas encore
+- boucle // Pas encore
+- boucle-sans-pile 
 
-- rotations
+- rotations // Pas encore
 
-- ifignore
-- boucle-if
-- boucle-clone
-- langton
+- ifignore // OK
+- boucle-if // Pas encore
+- boucle-clone // Pas encore
+- langton // Pas encore
 
 
 Acte Challenges:

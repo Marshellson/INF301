@@ -1,3 +1,11 @@
+/*
+ * @Author: ThearchyHelios
+ * @Date: 2022-10-22 13:39:32
+ * @LastEditTime: 2022-10-22 13:42:14
+ * @LastEditors: ThearchyHelios
+ * @Description: 
+ * @FilePath: /INF301/APP2/APP2/listes.h
+ */
 #ifndef LISTES_H
 #define LISTES_H
 
@@ -44,9 +52,15 @@ cellule_t* nouvelleCellule (void);
 
 void detruireCellule (cellule_t*);
 
-void conversion (char *texte, sequence_t *seq);
+/* attention: prend un cellule_t et non un sequence_t */
+void detruireSequence(cellule_t *tete);
 
-void afficher (sequence_t* seq);
+/* conversion de la chaine de caractere en liste chainee */
+void conversion(char *texte, sequence_t *seq);
 
+/* afficher la commande de chaque cellule de la sequence */
+void afficher(sequence_t* seq);
+
+cellule_t *copier_sequence(cellule_t *p_tete);
 
 #endif

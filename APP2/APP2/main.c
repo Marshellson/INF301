@@ -1,3 +1,11 @@
+/*
+ * @Author: ThearchyHelios
+ * @Date: 2022-10-22 13:39:31
+ * @LastEditTime: 2022-10-30 13:45:43
+ * @LastEditors: ThearchyHelios
+ * @Description: 
+ * @FilePath: /APP2/main.c
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

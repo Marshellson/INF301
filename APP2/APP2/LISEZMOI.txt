@@ -29,7 +29,6 @@ Utilisez (et modifiez) le script "run.py" fourni.
 (Lire le debut de ce fichier pour une explication de comment lancer les tests.)
 
 
-Pour les tests de performance : lire le fichier LISEZMOI-perfs.txt
 
 
 ****************************************************************

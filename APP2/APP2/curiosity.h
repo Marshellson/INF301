@@ -1,3 +1,11 @@
+/*
+ * @Author: ThearchyHelios
+ * @Date: 2022-10-22 13:39:31
+ * @LastEditTime: 2022-10-22 13:42:10
+ * @LastEditors: ThearchyHelios
+ * @Description: 
+ * @FilePath: /INF301/APP2/APP2/curiosity.h
+ */
 #ifndef CURIOSITY_H
 #define CURIOSITY_H
 
